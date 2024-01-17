@@ -8,3 +8,11 @@ https://www.youtube.com/watch?v=w0h1JGeVqFg&t=10s
 ver o negocio do transformers a partir de 1h de video
 
 https://creatomate.com/blog/how-to-use-ffmpeg-in-nodejs
+
+### Xenova Transformers
+
+- https://www.npmjs.com/package/@xenova/transformers
+
+### Projeto que usa o chatgpt
+
+- https://medium.com/@ralfelfving/build-your-own-voice-based-chat-assistant-with-openai-whisper-and-tts-text-to-speech-5c1ed05fa9ea
