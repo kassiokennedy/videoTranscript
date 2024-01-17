@@ -8,7 +8,7 @@ let data = null;
 export async function transcribeAudio() {
   try {
     const options = {
-      chunk_length_s: 30,
+      chunk_length_s: 15,
       stride_length_s: 5,
       language: "portuguese",
       task: "transcribe",
@@ -23,7 +23,7 @@ export async function transcribeAudio() {
 
     let transcriber = await pipeline(
       "automatic-speech-recognition",
-      "Xenova/whisper-tiny"
+      "Xenova/whisper-small"
     );
     let file = "./audio/audio.wav";
     function lerArquivoComoBuffer(file) {
