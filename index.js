@@ -1,10 +1,9 @@
+import express from "express";
+import bodyParser from "body-parser";
 import { downloader } from "./services/downloader.js";
 import { createMP3 } from "./services/createMp3.js";
 import { convertToWav } from "./services/createWav.js";
 import { transcribeAudio } from "./services/transcribe.js";
-//
-import express from "express";
-import bodyParser from "body-parser";
 // import cors from "cors";
 
 const app = express();
@@ -28,8 +27,7 @@ app.post("/download", async (req, res) => {
     // await createMP3();
     await convertToWav();
     //
-    const data = await transcribeAudio();
-    console.log("Data:\n", data);
+    await transcribeAudio();
     //
     return res.send("ok");
   } catch (error) {

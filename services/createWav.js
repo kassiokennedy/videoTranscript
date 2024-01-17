@@ -15,7 +15,7 @@ export const convertToWav = () =>
     ffmpeg()
       .input("./download/video.mp4")
       .audioCodec("pcm_s16le") // Configura o codec de áudio para PCM com 16 bits por amostra
-      .audioChannels(2) // Configura o número de canais para 2 (estéreo)
+      // .audioChannels(2) // Configura o número de canais para 2 (estéreo) - remover isso
       .audioFrequency(44100) // Configura a taxa de amostragem para 44.1 kHz
       .on("end", () => {
         console.log("Conversão concluída com sucesso.");
@@ -27,15 +27,5 @@ export const convertToWav = () =>
       })
       .save("./audio/audio.wav");
   });
-
-// Exemplo de uso
-
-// convertToWav(inputFilePath, outputFilePath)
-//   .then(() => {
-//     // Faça algo após a conversão bem-sucedida
-//   })
-//   .catch((err) => {
-//     // Trate erros
-//   });
 
 // ___________________________________________________________________________________________
