@@ -22,5 +22,5 @@ export const downloader = (videoUrl) =>
         console.log("download nao feito");
         reject();
       })
-      .pipe(fs.createWriteStream("./download/video.mp4"));
+      .pipe(fs.createWriteStream("./services/video/video.mp4"));
   });

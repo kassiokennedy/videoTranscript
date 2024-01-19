@@ -19,3 +19,7 @@ https://creatomate.com/blog/how-to-use-ffmpeg-in-nodejs
 ### Projeto que usa o chatgpt
 
 - https://medium.com/@ralfelfving/build-your-own-voice-based-chat-assistant-with-openai-whisper-and-tts-text-to-speech-5c1ed05fa9ea
+
+### para instalar todas a dependencias
+
+- npm install --save

@@ -24,7 +24,7 @@ export async function transcribeAudio() {
 
     // ---------- Arquivo local
     // const file = "./audio/audio.wav";
-    const file = await lerArquivoComoBuffer("./audio/audio.wav");
+    const file = await lerArquivoComoBuffer("./services/audio/audio.wav");
     const buffer = Buffer.from(file);
 
     let wav = new wavefile.WaveFile(buffer);
@@ -43,6 +43,7 @@ export async function transcribeAudio() {
       }
       audioData = audioData[0];
     }
+    // ---------- Arquivo local - FIM
 
     // Conta tempo de processamento
     let start = performance.now();
