@@ -12,7 +12,7 @@ export async function transcribeAudio() {
       task: "transcribe",
       return_timestamps: true,
     };
-
+    // "Xenova/whisper-small" => pode ser modificado para um modelo maior mas requer mais processamento de sua amquina
     const transcriber = await pipeline(
       "automatic-speech-recognition",
       "Xenova/whisper-small"
@@ -24,7 +24,7 @@ export async function transcribeAudio() {
 
     // ---------- Arquivo local
     // const file = "./audio/audio.wav";
-    const file = await lerArquivoComoBuffer("./services/audio/audio.wav");
+    const file = await lerArquivoComoBuffer("./audio/audio.wav");
     const buffer = Buffer.from(file);
 
     let wav = new wavefile.WaveFile(buffer);

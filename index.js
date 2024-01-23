@@ -1,33 +1,31 @@
 import express from "express";
 import bodyParser from "body-parser";
 import { downloader } from "./services/downloader.js";
-import { createMP3 } from "./services/createMp3.js";
 import { convertToWav } from "./services/createWav.js";
 import { transcribeAudio } from "./services/transcribe.js";
-// import cors from "cors";
 
 const app = express();
-
-import * as dotenv from "dotenv";
-dotenv.config();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// app.use(cors());
+/**
+ * envio da requisição simples assim:
+ * {
+ *   "videoUrl":"https://www.youtube.com/watch?v=9QgZBGgj_bs"
+ * }
+ */
 
-// downloader
-app.post("/download", async (req, res) => {
+app.post("/transcriber", async (req, res) => {
   // console.log(req);
   try {
-    const videoUrl = req.body.videoUrl;
+    const videoUrl = req.body.videoUrl; // recebe o video da requisição
     //
-    await downloader(videoUrl);
+    await downloader(videoUrl); // Faz o download do video
     //
-    // await createMP3();
-    await convertToWav();
+    await convertToWav(); // Converte o arquivo de mp4 pra wav
     //
-    await transcribeAudio();
+    await transcribeAudio(); //  Faz a transcição do audio
     //
     return res.send("ok");
   } catch (error) {
@@ -36,6 +34,5 @@ app.post("/download", async (req, res) => {
   }
 });
 
-app.listen(6969);
-
-// app.listen(process.env.PORT || 6969);
+app.listen(3000);
+console.log("\nServer running at port: http://localhost:3000\n");

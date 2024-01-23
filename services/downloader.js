@@ -4,9 +4,7 @@ import fs from "fs";
 
 export const downloader = (videoUrl) =>
   new Promise((resolve, reject) => {
-    // const url = videoUrl;
     const currentDate = new Date().toISOString().replace(/:/g, "-"); // Obtém a data atual como string no formato desejado
-    // const extension = path.extname(mediaUrlToSave); // Obtém a extensão do arquivo a partir da URL
     const fileName = `video_${currentDate}.mp4`; // Nome do arquivo será algo como 'downloadedFile_2023-12-15T121518.829Z.jpeg'
     const filePath = path.join("./download/", fileName); // Caminho completo do arquivo com o diretório especificado
 
@@ -22,5 +20,5 @@ export const downloader = (videoUrl) =>
         console.log("download nao feito");
         reject();
       })
-      .pipe(fs.createWriteStream("./services/video/video.mp4"));
+      .pipe(fs.createWriteStream("./video/video.mp4"));
   });

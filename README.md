@@ -23,3 +23,7 @@ https://creatomate.com/blog/how-to-use-ffmpeg-in-nodejs
 ### para instalar todas a dependencias
 
 - npm install --save
+
+### comando para rodar o projeto em modo desenvolvedor
+
+- npm run dev
