@@ -27,3 +27,25 @@ https://creatomate.com/blog/how-to-use-ffmpeg-in-nodejs
 ### comando para rodar o projeto em modo desenvolvedor
 
 - npm run dev
+
+//https://huggingface.co/docs/transformers.js/guides/node-audio-processing
+
+```Javascript
+    const options = {
+      chunk_length_s: 15,
+      stride_length_s: 5,
+      language: "portuguese",
+      task: "transcribe",
+      return_timestamps: true,
+    };
+
+```
+
+```Javascript
+    // "Xenova/whisper-small" => pode ser modificado para um modelo maior mas requer mais processamento de sua amquina
+    const transcriber = await pipeline(
+      "automatic-speech-recognition",
+      "Xenova/whisper-small"
+    );
+
+```

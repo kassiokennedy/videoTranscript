@@ -17,7 +17,7 @@ app.use(bodyParser.json());
  */
 
 app.post("/transcriber", async (req, res) => {
-  // console.log(req);
+  // console.log(req.body);
   try {
     const videoUrl = req.body.videoUrl; // recebe o video da requisição
     //

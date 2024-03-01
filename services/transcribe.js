@@ -17,14 +17,14 @@ export async function transcribeAudio() {
       "automatic-speech-recognition",
       "Xenova/whisper-small"
     );
-    // ---------- Arquivo da Web
+    // ---------- Arquivo da Web (streaming)
     // let url =
     //   "https://huggingface.co/datasets/Xenova/transformers.js-docs/resolve/main/jfk.wav";
     // let buffer = Buffer.from(await fetch(url).then(x => x.arrayBuffer()))
 
-    // ---------- Arquivo local
+    // ---------- Captura de arquivo local
     // const file = "./audio/audio.wav";
-    const file = await lerArquivoComoBuffer("./audio/audio.wav");
+    const file = await audioBuffer("./audio/audio.wav");
     const buffer = Buffer.from(file);
 
     let wav = new wavefile.WaveFile(buffer);
@@ -45,14 +45,10 @@ export async function transcribeAudio() {
     }
     // ---------- Arquivo local - FIM
 
-    // Conta tempo de processamento
-    let start = performance.now();
+    let start = performance.now(); // Conta tempo de processamento
     const output = await transcriber(audioData, options);
     let end = performance.now();
     console.log(`\n\nExecution duration: ${(end - start) / 1000} seconds\n\n`);
-
-    // Saida de dados
-    // console.log("\nOutput:\n", output);
 
     const text = output.text;
     console.log("text:", text);
@@ -60,13 +56,11 @@ export async function transcribeAudio() {
     console.log("\nError transcribe: \n", error);
   }
 }
-//https://huggingface.co/docs/transformers.js/guides/node-audio-processing
 
-async function lerArquivoComoBuffer(file) {
+async function audioBuffer(file) {
   try {
     // Lê o arquivo como buffer
     const bufferDoArquivo = fs.readFileSync(file);
-
     // console.log("Buffer do arquivo:", bufferDoArquivo);
     return bufferDoArquivo;
   } catch (erro) {
